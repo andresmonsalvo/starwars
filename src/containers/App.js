@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("https://swapi.py4e.com/api/people/1/")
+    fetch("https://swapi.py4e.com/api/people")
       .then((response) => response.json())
       .then((people) => {
         this.setState({ characters: people });
@@ -32,8 +32,6 @@ class App extends Component {
       return character.name.toLowerCase().includes(searchfield.toLowerCase());
     });
     return !characters.length ? (
-      <h1>Loading</h1>
-    ) : (
       <div className="tc">
         <h1 className="f1">Star Wars</h1>
         <SearchBox searchChange={this.onSearchChange} />
